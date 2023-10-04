@@ -1,12 +1,12 @@
 <h1 align="center">
-Spell4Wiki > Spell For Wiktionary
+Spell4Wiki - Spell For Wiktionary/Wikimedia Commons
 </h1>
 
 <p align="center"><img width="120" height="120" src="https://raw.githubusercontent.com/manimaran96/Spell4Wiki/master/files/assets/icons/spell4wiki-playstore.png" alt="logo"/></p>
 
 <p align="center">
 Spell4Wiki is a mobile application to record and upload audio for Wiktionary words to Wikimedia Commons.<br/>
-Spell4Wiki also act as a Wiki-Dictionary (word meaning from Wiktionary).
+Spell4Wiki also a multilingual Wiki-Dictionary.
 </p>
 
 <p align="center">
@@ -31,7 +31,14 @@ Spell4Wiki also act as a Wiki-Dictionary (word meaning from Wiktionary).
    <kbd align="center">
 <p align="center">
 <img src="https://raw.githubusercontent.com/manimaran96/Spell4Wiki/master/files/assets/screenshots/spell4wiki_ui.gif" width="300"/></p></kbd>
-  
+
+
+**What Spell4Wiki App Achieved**
+- Supported 250+ Languages for all 4 features.
+- Uploaded 30,000+ audio files to Wikimedia commons from various language contributors.
+- All audio files are categorized under Wikimedia commons - https://commons.wikimedia.org/wiki/Category:Files_uploaded_by_spell4wiki
+
+
 ## Contribution
 
 Whether you have ideas, translations, design changes, bugs, code cleaning, or real heavy code changes, help is always welcome. The more is done the better it gets!
@@ -53,7 +60,9 @@ More videos for other language [check here](https://github.com/manimaran96/Spell
  
 #### By Paypal
 
-<a href="https://www.paypal.me/manimaran24"><img src="https://raw.githubusercontent.com/manimaran96/Spell4Wiki/master/files/assets/images/badges/paypal.png" width="200px"/></a>
+<a href="https://www.paypal.me/manimaranlpt"><img src="https://raw.githubusercontent.com/manimaran96/Spell4Wiki/master/files/assets/images/badges/paypal.png" width="200px"/></a>
+
+https://www.paypal.me/manimaranlpt
 
 #### By BHIM UPI Payment 
 
@@ -107,11 +116,8 @@ Specifically you can redistribute and/or modify it under the terms of the [GNU G
 ## TODO List
 1. Implement Two factor authentication.
 2. Resolve category update problem(பகுப்பு:தமிழ்-ஒலிக்கோப்புகளில்லை).
-3. Custom category list from Wiktionary.
-4. Resolve issues.
-5. Support to other languages.
-6. Dark mode UI
-7. Update with android latest technologies
+3. Resolve issues.
+4. Dark mode UI
 
 ## Communication
 

@@ -57,7 +57,7 @@ class WiktionarySearchActivity : BaseActivity(), EndlessListener {
 
     private fun init() {
         val pref = PrefManager(this@WiktionarySearchActivity)
-        languageCode = pref.languageCodeWiktionary
+        languageCode = pref.languageCodeSpell4WikiAll
         api = getWiktionaryApi(applicationContext, languageCode ?: AppConstants.DEFAULT_LANGUAGE_CODE).create(ApiInterface::class.java)
 
         // Views
@@ -142,7 +142,7 @@ class WiktionarySearchActivity : BaseActivity(), EndlessListener {
             }
         }
         val languageSelectionFragment = LanguageSelectionFragment(this)
-        languageSelectionFragment.init(callback, ListMode.WIKTIONARY)
+        languageSelectionFragment.init(callback, ListMode.SPELL_4_WIKI_ALL)
         languageSelectionFragment.show(supportFragmentManager)
     }
 

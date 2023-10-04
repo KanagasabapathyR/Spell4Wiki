@@ -17,6 +17,7 @@
 
     <!--Don't translate-->
     <string name="app_name" translatable="false">Spell4Wiki</string>
+    <string name="spell_4_wiki_all" translatable="false">Spell4wiki</string>
     <string name="spell4wiktionary" translatable="false">Spell for Wiktionary</string>
     <string name="spell4wordlist" translatable="false">Spell for WordList</string>
     <string name="spell4word" translatable="false">Spell for Word</string>
@@ -58,7 +59,7 @@
     <string name="link_share_title">Share link to your friends…</string>
     <string name="app_share_title">Share Spell4Wiki App to your friends…</string>
     <string name="app_share_invite_message">🎊🎉 I am happy to invite you to contribute your voice for wiktionary words using Spell4Wiki android application. 🎉🎊\n\n%s\nSpell4Wiki is a Free Software(GPLv3).</string>
-    <string name="app_description">Spell4Wiki is a mobile application to record and upload audio for Wiktionary words to Wikimedia commons. This is also act as a Wiki-Dictionary.</string>
+    <string name="app_description">Spell4Wiki is a mobile application to record and upload audio for Wiktionary words to Wikimedia Commons. It is also a multilingual Wiki-Dictionary.</string>
     <string name="app_share_link">App Link :\n%s</string>
     <string name="upload">Upload</string>
     <string name="before_record">Hold the Mic to Record</string>
@@ -94,9 +95,9 @@
     <string name="share_app">Share the App</string>
     <string name="share">Share</string>
     <string name="powered_by">Powered By</string>
-    <string name="kaniyam">Kaniyam</string>
+    <string name="kaniyam">Kaniyam Foundation</string>
     <string name="about_kaniyam">The Kaniyam Foundation is an organization for ensuring the development of the use of Tamil language in all aspects of science and socio-economic development and making knowledge &amp; resources available in free access.</string>
-    <string name="vglug">VGLUG</string>
+    <string name="vglug">VGLUG Foundation</string>
     <string name="about_vglug">Villupuram GNU/Linux Users Group (Villupuram GLUG) is a non profit organization started in 2013, inspired by Free and open-source software (FOSS).</string>
     <string name="how_to_contribute">How to Contribute?</string>
     <string name="source_code">See Source Code</string>
@@ -132,9 +133,13 @@
     <string name="app_settings">App Settings</string>
     <string name="app_language">App Language</string>
     <string name="action_add">Add</string>
-    <string name="choose_your_preferred_app_language">Choose your preferred language.\nCurrent app language : %s</string>
+   <string name="choose_your_preferred_app_language">Choose your preferred language.\nCurrent app language : %s</string>
+    <string name="choose_your_preferred_contribution_language">Choose your preferred language.\nCurrent contribution language : %s</string>
+
     <string name="choose_app_language">Choose app language</string>
+    <string name="choose_contribution_language">Choose contribution  language</string>
     <string name="app_language_selection">App Language Selection</string>
+    <string name="contribution_language_selection">Contribution Language Selection</string>
     <string name="yes_continue">Yes, Continue</string>
     <string name="later">Later</string>
     <string name="temporary">Temporary</string>
@@ -202,9 +207,9 @@
     <string name="app_intro_slide_5_title">Permission Request</string>
 
     <string name="app_intro_slide_1_description">@string/app_description</string>
-    <string name="app_intro_slide_2_description">You can search meaning from Wikitionary for any words in any languages.</string>
-    <string name="app_intro_slide_3_description">You can upload for your own list of words from a text file or copy &amp; paste.</string>
-    <string name="app_intro_slide_4_description">You can spell and upload for a single word.</string>
+    <string name="app_intro_slide_2_description">You can explore meaning from Wiktionary for any words in any language.</string>
+    <string name="app_intro_slide_3_description">You can record and upload audio files for own list of words from a text file or copy &amp; paste.</string>
+    <string name="app_intro_slide_4_description">You can record and upload for a single word by easy way.</string>
     <string name="app_intro_slide_5_description">Spell4Wiki require storage and record audio permissions without violating your privacy.</string>
 
 

@@ -168,12 +168,8 @@ class EndlessRecyclerAdapter(
 
     private val languageCode: String?
         get() = when (mode) {
-            ListMode.SPELL_4_WIKI -> pref.languageCodeSpell4Wiki
-            ListMode.SPELL_4_WORD_LIST -> pref.languageCodeSpell4WordList
-            ListMode.SPELL_4_WORD -> pref.languageCodeSpell4Word
-            ListMode.WIKTIONARY -> pref.languageCodeWiktionary
             ListMode.TEMP -> null
-            else -> null
+            else -> pref.languageCodeSpell4WikiAll
         }
 
     internal class ProgressViewHolder(itemView: View) : BaseViewHolder(itemView) {
@@ -199,8 +195,8 @@ class EndlessRecyclerAdapter(
                         if (!isHaveAudio) {
                             if (checkPermissionGranted(mActivity)) {
                                 if (isConnected(mActivity))
-                                    showRecordDialog(mActivity, word, languageCode
-                                ) else showNetworkProblem()
+                                    showRecordDialog(mActivity, word, languageCode)
+                                else showNetworkProblem()
                             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                                 permissionToRecordAudio
                             }

@@ -22,12 +22,8 @@ import com.manimarank.spell4wiki.data.db.DBHelper
 import com.manimarank.spell4wiki.data.db.entities.WikiLang
 import com.manimarank.spell4wiki.data.prefs.PrefManager
 import com.manimarank.spell4wiki.ui.listerners.OnLanguageSelectionListener
-import com.manimarank.spell4wiki.utils.GeneralUtils.openUrlInBrowser
-import com.manimarank.spell4wiki.utils.NetworkUtils.isConnected
-import com.manimarank.spell4wiki.utils.SnackBarUtils.showNormal
 import com.manimarank.spell4wiki.utils.constants.ListMode
 import com.manimarank.spell4wiki.utils.constants.ListMode.Companion.EnumListMode
-import com.manimarank.spell4wiki.utils.constants.Urls
 import com.manimarank.spell4wiki.utils.makeGone
 import com.manimarank.spell4wiki.utils.makeVisible
 
@@ -51,7 +47,8 @@ class LanguageSelectionFragment(private val mActivity: Activity) : BottomSheetDi
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         pref = PrefManager(context)
-        if (TextUtils.isEmpty(preSelectedLanguageCode)) preSelectedLanguageCode = existingLanguageCode
+        if (TextUtils.isEmpty(preSelectedLanguageCode))
+            preSelectedLanguageCode = existingLanguageCode
         val dialog = BottomSheetDialog(mActivity, R.style.AppTheme)
         dialog.setContentView(R.layout.bottom_sheet_language_selection)
         val txtTitle = dialog.findViewById<TextView>(R.id.text_select_lang_title)
@@ -73,31 +70,22 @@ class LanguageSelectionFragment(private val mActivity: Activity) : BottomSheetDi
          * "title_words_without_audio" - category of words without audio in wiktionary
          */
         wikiLanguageList.clear()
-        if (listMode == ListMode.SPELL_4_WIKI) {
-            dbHelper.appDatabase.wikiLangDao?.wikiLanguageListForWordsWithoutAudio?.filterNotNull()?.forEach { item -> wikiLanguageList.add(item) }
-            layoutAddLanguage.makeVisible()
-            btnAddMyLanguage?.setOnClickListener {
-                if (isAdded && isConnected(requireContext())) {
-                    openUrlInBrowser(requireContext(), Urls.FORM_ADD_MY_LANGUAGE)
-                } else showNormal(btnAddMyLanguage, getString(R.string.check_internet))
-            }
-        } else {
-            dbHelper.appDatabase.wikiLangDao?.wikiLanguageList?.filterNotNull()?.forEach { item -> wikiLanguageList.add(item) }
-            layoutAddLanguage.makeGone()
-        }
+        layoutAddLanguage.makeGone()
+        dbHelper.appDatabase.wikiLangDao?.wikiLanguageList?.filterNotNull()?.forEach { item -> wikiLanguageList.add(item) }
         val languageSelectionListener = object : OnLanguageSelectionListener {
             override fun onCallBackListener(langCode: String?) {
                 when (listMode) {
-                    ListMode.SPELL_4_WIKI -> pref.languageCodeSpell4Wiki = langCode
-                    ListMode.SPELL_4_WORD_LIST -> pref.languageCodeSpell4WordList = langCode
-                    ListMode.SPELL_4_WORD -> pref.languageCodeSpell4Word = langCode
-                    ListMode.WIKTIONARY -> pref.languageCodeWiktionary = langCode
-                    ListMode.TEMP -> {
-                    }
+                    ListMode.TEMP -> {}
+                    else -> pref.languageCodeSpell4WikiAll = langCode
                 }
                 callback?.onCallBackListener(langCode)
                 dismiss()
             }
+        }
+        val selectedLangInfo = wikiLanguageList.firstOrNull { wikiLang -> wikiLang.code == preSelectedLanguageCode }
+        if (selectedLangInfo != null) {
+            wikiLanguageList.remove(selectedLangInfo);
+            wikiLanguageList.add(0, selectedLangInfo);
         }
         adapter = LanguageAdapter(wikiLanguageList, languageSelectionListener, preSelectedLanguageCode)
         recyclerView?.adapter = adapter
@@ -136,10 +124,7 @@ class LanguageSelectionFragment(private val mActivity: Activity) : BottomSheetDi
 
     private val existingLanguageCode: String?
         get() = when (listMode) {
-            ListMode.SPELL_4_WIKI -> pref.languageCodeSpell4Wiki
-            ListMode.SPELL_4_WORD_LIST -> pref.languageCodeSpell4WordList
-            ListMode.SPELL_4_WORD -> pref.languageCodeSpell4Word
-            ListMode.WIKTIONARY -> pref.languageCodeWiktionary
+            ListMode.SPELL_4_WIKI_ALL -> pref.languageCodeSpell4WikiAll
             ListMode.TEMP -> null
             else -> null
         }
@@ -147,10 +132,7 @@ class LanguageSelectionFragment(private val mActivity: Activity) : BottomSheetDi
         get() {
             var info: String? = null
             when (listMode) {
-                ListMode.SPELL_4_WIKI -> info = getString(R.string.spell4wiktionary)
-                ListMode.SPELL_4_WORD_LIST -> info = getString(R.string.spell4wordlist)
-                ListMode.SPELL_4_WORD -> info = getString(R.string.spell4word)
-                ListMode.WIKTIONARY -> info = getString(R.string.wiktionary)
+                ListMode.SPELL_4_WIKI_ALL -> info = getString(R.string.spell_4_wiki_all)
                 ListMode.TEMP -> info = getString(R.string.temporary)
             }
             if (info != null) {
